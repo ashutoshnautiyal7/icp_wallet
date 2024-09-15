@@ -22,12 +22,12 @@ get wallet balance : `dfx canister call icp_wallet_backend get_balance`
 response : (1_000 : nat64)
 
 Send tokens to other addresses : `dfx canister call icp_wallet_backend send_tokens '(100 : nat64, "recipient_address")'`
-response : (variant { 17_724 })
+response : Remaining balance after sending: 900
 
 `now our remaining balance would be 900`
 
 Receive tokens : `dfx canister call icp_wallet_backend receive_tokens '(99 : nat64)'`
-response : (variant { 17_724 })
+response : The balance after recieving: 999
 
 `now the balance would be 999`
 

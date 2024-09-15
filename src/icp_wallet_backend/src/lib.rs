@@ -49,6 +49,7 @@ fn send_tokens_internal(amount: u64, to: Option<String>, caller: String) -> Resu
             return Err("Insufficient balance".to_string());
         }
         w.balance -= amount;
+        ic_cdk::println!("Remaining balance after sending: {}", w.balance);
         if let Some(to_address) = to {
             // Implement token transfer logic here
             println!("Tokens sent to: {}", to_address);
@@ -69,6 +70,7 @@ fn receive_tokens_internal(amount: u64, caller: String) -> Result<(), String> {
             return Err("Unauthorized".to_string());
         }
         w.balance += amount;
+        ic_cdk::println!("The balance after recieving: {}", w.balance);
         Ok(())
     })
 }
